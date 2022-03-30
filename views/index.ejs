@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Home</title>
+</head>
+<body>
+   <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
+                unn pizza
+            </div>
+            <nav class="header__menu">
+                <ul class="header__list">
+                    <li class="header__item">
+                        <a href="/" class="header__link">Главный</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#" class="header__link">О нас</a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </div>
+   </header>
+   <section class="pizza">
+       <div class="pizza__container">
+           <div class="pizza__row">
+               <% dataPizza.forEach(pizza => {%>
+                <div class="pizza__item">
+                    <div class="pizza__img">
+                        <img src="/img/product/<%= pizza.picture%>" alt=" pizza image">
+                    </div>
+                    <span class="pizza__name"> <%= pizza.name%> </span>
+                    <div class="pizza__footer">
+                       <p class="pizza__price"> <span class="pizza__price-number"><%= pizza.price%></span>₽</p>
+                        <a href="order/<%= pizza.id%>" class="pizza__btn">заказать</a>
+                    </div>
+                </div>
+                <% })%>
+           </div>
+       </div>
+   </section>
+   <footer class="footer">
+       unn pizza
+   </footer>
+    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Order</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
+                unn pizza
+            </div>
+            <nav class="header__menu">
+                <ul class="header__list">
+                    <li class="header__item">
+                        <a href="/" class="header__link">Главный</a>
+                    </li>
+                    <li class="header__item">
+                        <a href="#" class="header__link ">О нас</a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </div>
+   </header>
+   <section class="order">
+       <div class="order__container">
+           <h2 class="order__title"> <span class="order__pizzaSelected"> <%=pizzaSelected.name %></span>: <span class="order__pricePizzaSelected"> <%= pizzaSelected.price %>  </span> ₽ </h2>
+           <div class="order__row">
+               <div class="order__img">
+                    <img src="/img/product/<%= pizzaSelected.picture%>" alt="">
+               </div>
+               <div class="order__body body-order">
+                <div class="body-order__row">
+                    <% dataIng.forEach(ingredient=>{%>
+                        <div class="body-order__item">
+                            <div class="body-order__img">
+                                <img src="/img/ingredient/<%= ingredient.pictureIngredient%>" alt=" image des ingredients">
+                            </div>
+                            <div class="body-order__infos">
+                                <p class="body-order__name"> <%= ingredient.nameIngredient %> </p>
+                                <p class="body-order__price">цена: <span class="body-order__price-number"><%= ingredient.price %></span> ₽</p>
+                            </div>
+                        </div>
+                    <% })%>
+                </div>
+           </div>
+           </div>
+           <button class="order__btn">заказать</button>
+           
+       </div>
+       <div class="modal">
+           заказ принято
+       </div>
+   </section>
+    
+    <script src="/js/main.js"></script>
+</body>
+</html>
